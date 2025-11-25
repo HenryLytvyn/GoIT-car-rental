@@ -9,6 +9,7 @@ export default function Catalog() {
           <p className={css.selectTitle}>Car brand</p>
           <SelectPrimary
             width={204}
+            height={272}
             options={[
               'Aston Martin',
               'Audi',
