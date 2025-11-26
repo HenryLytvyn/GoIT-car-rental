@@ -1,0 +1,26 @@
+.catalogContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 16px;
+  padding-top: 84px;
+}
+
+.filtersList {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 752px;
+}
+
+.filterItem {
+}
+
+.selectTitle {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--color-text-secondary);
+
+  margin-bottom: 8px;
+}

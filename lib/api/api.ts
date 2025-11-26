@@ -1,8 +1,9 @@
 import axios from 'axios';
 
-const baseURL = process.env.NEXT_PUBLIC_API_URL + '/api';
-
-export const nextServer = axios.create({
-  baseURL,
-  withCredentials: true,
-});
+export async function getCars(page: number) {
+  const { data } = await axios.get('https://car-rental-api.goit.global/cars', {
+    params: { page },
+  });
+  // console.log(data);
+  return data;
+}
