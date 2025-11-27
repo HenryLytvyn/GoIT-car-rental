@@ -2,18 +2,14 @@
 
 import { useState } from 'react';
 import css from './DoubleInput.module.css';
-
-interface Values {
-  from: string;
-  to: string;
-}
+import type { DoubleInputValuesType } from '@/types/DoubleInput/DoubleInput';
 
 interface Props {
-  handleChange: (value: Values) => void;
+  handleChange: (value: DoubleInputValuesType) => void;
 }
 
 export default function DoubleInput({ handleChange }: Props) {
-  const [values, setValues] = useState<Values>({
+  const [values, setValues] = useState<DoubleInputValuesType>({
     from: '',
     to: '',
   });

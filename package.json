@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.10",
+    "@tanstack/react-query-devtools": "^5.91.1",
     "axios": "^1.13.2",
     "clsx": "^2.1.1",
-    "cookie": "^1.0.2",
     "modern-normalize": "^3.0.1",
     "next": "16.0.3",
     "react": "19.2.0",

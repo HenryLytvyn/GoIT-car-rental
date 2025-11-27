@@ -1,24 +1,10 @@
 import Image from 'next/image';
 import css from './CarCard.module.css';
-import ButtonPrimary from '../ButtonPrimary/ButtonPrimary';
 import LinkPrimary from '../LinkPrimary/LinkPrimary';
-
-interface CarCardProps {
-  id: string;
-  year: number;
-  brand: string;
-  model: string;
-  type: string;
-  img: string;
-  description: string;
-  rentalPrice: string;
-  rentalCompany: string;
-  address: string;
-  mileage: number;
-}
+import type { CarCardType } from '@/types/CarCard/CarCard';
 
 interface Props {
-  car: CarCardProps;
+  car: CarCardType;
 }
 
 export default function CarCard({ car }: Props) {
@@ -63,7 +49,7 @@ export default function CarCard({ car }: Props) {
         </div>
         <p className={css.secondaryText}>{car.type}</p>
         <div className={css.divider}></div>
-        <p className={css.secondaryText}>{car.mileage}</p>
+        <p className={css.secondaryText}>{car.mileage} km</p>
       </div>
       <LinkPrimary width={276} text="Read more" page="/" />
     </div>

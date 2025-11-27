@@ -1,13 +1,8 @@
+import { QueryCarsType } from '@/types/apiRequest/apiRequest';
+import type { ResponseCarsType } from '@/types/apiResponse/apiResponse';
 import axios from 'axios';
 
-interface CarsQuery {
-  brand?: string;
-  rentalPrice?: string;
-  minMileage?: string;
-  maxMileage?: string;
-  limit?: string;
-  page?: string;
-}
+const BaseURL = process.env.NEXT_PUBLIC_API_URL;
 
 export async function getCars({
   brand,
@@ -16,10 +11,10 @@ export async function getCars({
   maxMileage,
   limit,
   page,
-}: CarsQuery) {
-  const { data } = await axios.get('https://car-rental-api.goit.global/cars', {
+}: QueryCarsType): Promise<ResponseCarsType> {
+  const { data } = await axios.get<ResponseCarsType>(`${BaseURL}/cars`, {
     params: { brand, rentalPrice, minMileage, maxMileage, limit, page },
   });
-  // console.log(data);
+
   return data;
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import css from './SelectPrimary.module.css';
 import { Icon } from '../Icon/Icon';
 
