@@ -7,7 +7,7 @@ interface CarsFiltersState {
   resetQuery: () => void;
 }
 
-export const useCarsFilters = create<CarsFiltersState>(set => ({
+const useCarsFilters = create<CarsFiltersState>(set => ({
   query: { limit: '12', page: '1' },
 
   setQuery: query =>
@@ -20,3 +20,5 @@ export const useCarsFilters = create<CarsFiltersState>(set => ({
       query: { limit: '12', page: '1' },
     }),
 }));
+
+export default useCarsFilters;

@@ -1,9 +1,9 @@
-import type { CarCardType } from '@/types/CarCard/CarCard';
+import { CarType } from '@/types/apiResponse/apiResponse';
 import CarCard from '../CarCard/CarCard';
 import css from './CarsList.module.css';
 
 interface Props {
-  items: CarCardType[];
+  items: CarType[];
 }
 
 export default function CarsList({ items }: Props) {

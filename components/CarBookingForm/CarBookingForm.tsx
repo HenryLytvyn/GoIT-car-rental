@@ -4,7 +4,7 @@ import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
 import css from './CarBookingForm.module.css';
 import { BookingFormType } from '@/types/CarBookingForm/CarBookingForm';
 import { postBookingCar } from '@/lib/api/api';
-import { useBookingStore } from '@/lib/store/bookingStore';
+import useBookingStore from '@/lib/store/bookingStore';
 import BookingFormSchema from '@/lib/validation/bookingFormSchema';
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
@@ -47,8 +47,6 @@ export default function CarBookingForm({ carId }: Props) {
     addBooking(booking.carId, booking.date);
     actions.resetForm();
   }
-
-  console.log(bookingList);
 
   return (
     <>

@@ -12,7 +12,7 @@ interface BookingStore {
   removeBooking: (carId: string, date: string) => void;
 }
 
-export const useBookingStore = create<BookingStore>()(set => ({
+const useBookingStore = create<BookingStore>()(set => ({
   bookingList: [],
   addBooking: (carId: string, date: string) =>
     set(state => ({
@@ -26,3 +26,5 @@ export const useBookingStore = create<BookingStore>()(set => ({
       ),
     })),
 }));
+
+export default useBookingStore;

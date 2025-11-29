@@ -4,5 +4,5 @@ export interface QueryCarsType {
   minMileage?: string;
   maxMileage?: string;
   limit?: string;
-  page?: string;
+  page: string;
 }

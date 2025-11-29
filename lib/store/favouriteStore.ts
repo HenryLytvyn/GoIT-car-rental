@@ -5,7 +5,7 @@ interface FavouriteStore {
   setFavourite: (id: string) => void;
 }
 
-export const useFavouriteList = create<FavouriteStore>()(set => ({
+const useFavouriteList = create<FavouriteStore>()(set => ({
   favouriteList: [],
   setFavourite: (id: string) =>
     set(state => ({
@@ -14,3 +14,5 @@ export const useFavouriteList = create<FavouriteStore>()(set => ({
         : [...state.favouriteList, id],
     })),
 }));
+
+export default useFavouriteList;

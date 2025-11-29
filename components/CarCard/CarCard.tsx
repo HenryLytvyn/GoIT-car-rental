@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import css from './CarCard.module.css';
 import LinkPrimary from '../LinkPrimary/LinkPrimary';
-import type { CarCardType } from '@/types/CarCard/CarCard';
 import getAddress from '@/utils/getAddress';
 import { Icon } from '../Icon/Icon';
-import { useFavouriteList } from '@/lib/store/favouriteStore';
+import useFavouriteList from '@/lib/store/favouriteStore';
+import { CarType } from '@/types/apiResponse/apiResponse';
 
 interface Props {
-  car: CarCardType;
+  car: CarType;
 }
 
 export default function CarCard({ car }: Props) {

@@ -9,7 +9,8 @@ interface Props {
   width: number;
   height: number;
   options: string[];
-  placeholder?: string;
+  placeholder: string;
+  value: string | undefined;
   handleChange: (value: string) => void;
   symbolBeforeValue?: string;
 }
@@ -18,13 +19,13 @@ export default function SelectPrimary({
   width,
   height,
   options,
-  placeholder = 'Select',
+  placeholder,
+  value,
   handleChange,
   symbolBeforeValue,
 }: Props) {
   const selectRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selected, setSelected] = useState<string>(placeholder);
 
   useClickOutside({
     ref: selectRef,
@@ -36,7 +37,6 @@ export default function SelectPrimary({
   }
 
   function handleSelect(option: string) {
-    setSelected(option);
     setIsOpen(false);
     handleChange(option);
   }
@@ -50,9 +50,9 @@ export default function SelectPrimary({
       >
         <div className={css.customSelectTrigger} onClick={toggle}>
           <p>
-            {symbolBeforeValue && selected !== placeholder
-              ? `${symbolBeforeValue}${selected}`
-              : selected}
+            {!value && placeholder}
+            {value && symbolBeforeValue && `${symbolBeforeValue}${value}`}
+            {!symbolBeforeValue && value}
           </p>
           <Icon name="icon-arrow-down" className={css.arrowIcon} />
         </div>
@@ -63,7 +63,7 @@ export default function SelectPrimary({
           <ul className={css.customSelectOptions}>
             {options.map(option => (
               <li
-                className={`${css.customSelectItem} ${option === selected ? css.selected : ''}`}
+                className={`${css.customSelectItem} ${option === value ? css.selected : ''}`}
                 key={option}
                 onClick={() => {
                   handleSelect(option);
