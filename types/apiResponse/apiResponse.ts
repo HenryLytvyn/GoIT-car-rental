@@ -1,13 +1,11 @@
-import type { CarCardType } from '../CarCard/CarCard';
-
-export interface CarsResponse {
-  cars: CarCardType[];
+export interface CarsResponseType {
+  cars: CarType[];
   totalCars: number;
   page: string;
   totalPages: number;
 }
 
-export interface CarByIdResponse {
+export interface CarType {
   id: string;
   year: number;
   brand: string;
@@ -26,7 +24,7 @@ export interface CarByIdResponse {
   mileage: number;
 }
 
-export interface CarBookingResponse {
+export interface CarBookingResponseType {
   name: string;
   email: string;
   date: string;

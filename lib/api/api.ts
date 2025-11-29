@@ -1,8 +1,8 @@
 import { QueryCarsType } from '@/types/apiRequest/apiRequest';
 import type {
-  CarBookingResponse,
-  CarByIdResponse,
-  CarsResponse,
+  CarBookingResponseType,
+  CarsResponseType,
+  CarType,
 } from '@/types/apiResponse/apiResponse';
 import { BookingFormType } from '@/types/CarBookingForm/CarBookingForm';
 import axios from 'axios';
@@ -16,8 +16,8 @@ export async function getCars({
   maxMileage,
   limit,
   page,
-}: QueryCarsType): Promise<CarsResponse> {
-  const { data } = await axios.get<CarsResponse>(`${BaseURL}/cars`, {
+}: QueryCarsType): Promise<CarsResponseType> {
+  const { data } = await axios.get<CarsResponseType>(`${BaseURL}/cars`, {
     params: { brand, rentalPrice, minMileage, maxMileage, limit, page },
   });
 
@@ -30,16 +30,16 @@ export async function getCarBrends(): Promise<string[]> {
   return data;
 }
 
-export async function getCarById(id: string): Promise<CarByIdResponse> {
-  const { data } = await axios.get<CarByIdResponse>(`${BaseURL}/cars/${id}`);
+export async function getCarById(id: string): Promise<CarType> {
+  const { data } = await axios.get<CarType>(`${BaseURL}/cars/${id}`);
 
   return data;
 }
 
 export async function postBookingCar(
   form: BookingFormType
-): Promise<CarBookingResponse> {
-  const { data } = await axios.post<CarBookingResponse>(
+): Promise<CarBookingResponseType> {
+  const { data } = await axios.post<CarBookingResponseType>(
     'https://jsonplaceholder.typicode.com/posts',
     form
   );

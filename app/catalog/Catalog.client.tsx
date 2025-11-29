@@ -13,6 +13,7 @@ import CarsList from '@/components/CarsList/CarsList';
 import BackgroundOverlay from '@/components/BackgroundOverlay/BackgroundOverlay';
 import Loader from '@/components/Loader/Loader';
 import { useLockScroll } from '@/lib/hooks/useLockScroll';
+// import { useCarsFilters } from '@/lib/store/CarsFiltersStore';
 
 interface Props {
   brands: string[];
@@ -20,6 +21,8 @@ interface Props {
 
 export default function CatalogClient({ brands }: Props) {
   const [query, setQuery] = useState<QueryCarsType>({ limit: '12', page: '1' });
+
+  // const { query, setQuery } = useCarsFilters();
 
   const { data, error, isFetching, refetch } = useQuery({
     queryKey: ['cars'],
