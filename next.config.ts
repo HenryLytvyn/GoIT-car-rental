@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'ac.goit.global' },
-      { protocol: 'https', hostname: '*.vercel.app' },
+      { protocol: 'https', hostname: 'go-it-car-rental.vercel.app' },
     ],
   },
 };
