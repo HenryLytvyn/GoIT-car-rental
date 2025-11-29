@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://go-it-car-rental-5ia63ez2b-henrys-projects-5eef7959.vercel.app/openGraph.png',
+        url: 'https://go-it-car-rental-5ia63ez2b-henrys-projects-5eef7959.vercel.app/openGraph.jpg',
         width: 1200,
         height: 630,
         alt: 'Car rental catalog preview',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description:
       'Explore a wide range of cars for rent. Filter by brand, price, and mileage, and load more options easily.',
     images: [
-      'https://go-it-car-rental-5ia63ez2b-henrys-projects-5eef7959.vercel.app/openGraph.png',
+      'https://go-it-car-rental-5ia63ez2b-henrys-projects-5eef7959.vercel.app/openGraph.jpg',
     ],
   },
 };

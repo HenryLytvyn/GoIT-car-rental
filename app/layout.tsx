@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://go-it-car-rental-5ia63ez2b-henrys-projects-5eef7959.vercel.app/openGraph.png',
+        url: 'https://go-it-car-rental-5ia63ez2b-henrys-projects-5eef7959.vercel.app/openGraph.jpg',
         width: 1200,
         height: 630,
         alt: 'Find your perfect rental car',
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     description:
       'Reliable and budget-friendly rental cars for any journey. Browse our catalog and book your ideal car today.',
     images: [
-      'https://go-it-car-rental-5ia63ez2b-henrys-projects-5eef7959.vercel.app/openGraph.png',
+      'https://go-it-car-rental-5ia63ez2b-henrys-projects-5eef7959.vercel.app/openGraph.jpg',
     ],
   },
 };
