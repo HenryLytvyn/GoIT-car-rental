@@ -1,7 +1,13 @@
+'use client';
+
 import Link from 'next/link';
 import css from './Header.module.css';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
+  const isHomePage = usePathname() === '/';
+  const isCatalogPage = usePathname() === '/catalog';
+
   return (
     <header className={css.header}>
       <div className={`container ${css.headerContainer}`}>
@@ -12,12 +18,18 @@ export default function Header() {
         <nav className={css.nav}>
           <ul className={css.navList}>
             <li className={css.navItem}>
-              <Link className={css.navItemLink} href="/">
+              <Link
+                className={`${css.navItemLink} ${isHomePage ? css.accentColor : ''}`}
+                href="/"
+              >
                 Home
               </Link>
             </li>
             <li className={css.navItem}>
-              <Link className={css.navItemLink} href="/catalog">
+              <Link
+                className={`${css.navItemLink} ${isCatalogPage ? css.accentColor : ''}`}
+                href="/catalog"
+              >
                 Catalog
               </Link>
             </li>

@@ -31,6 +31,7 @@ export default async function CarInfo({ params }: Props) {
           <h1
             className={css.mainTitle}
           >{`${car.brand} ${car.model}, ${car.year}`}</h1>
+          <p className={css.idMarkUp}>Id: 9582</p>
           <div className={css.additionInfoWrapper}>
             <Icon name="icon-location" className={css.locationIcon} />
             <address

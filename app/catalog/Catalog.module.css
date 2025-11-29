@@ -1,5 +1,6 @@
 .catalogContainer {
   padding-bottom: 124px;
+  position: relative;
 }
 
 .filtersContainer {
@@ -48,4 +49,9 @@
 .loadMoreBtn:hover,
 .loadMoreBtn:focus {
   border-color: var(--color-hover);
+}
+
+.loaderContainer {
+  /* position: absolute; */
+  margin-top: 80px;
 }

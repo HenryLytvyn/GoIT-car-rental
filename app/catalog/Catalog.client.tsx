@@ -22,6 +22,7 @@ interface Props {
 }
 
 export default function CatalogClient({ brands }: Props) {
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
   const { query, setQuery } = useCarsFilters();
   const { carsList, rewriteCarsList, addCarsToList } = useCarsStore();
   const queryClient = useQueryClient();
@@ -61,6 +62,7 @@ export default function CatalogClient({ brands }: Props) {
   }
 
   async function handleLoadMore() {
+    setIsLoadingMore(true);
     const nextPage = Number(data?.page) + 1;
     const res = await getCars({
       ...query,
@@ -71,6 +73,8 @@ export default function CatalogClient({ brands }: Props) {
       ...res,
       cars: [...carsList, ...res.cars],
     });
+
+    setIsLoadingMore(false);
   }
 
   function updateQuery(key: keyof QueryCarsType, value: string) {
@@ -85,8 +89,6 @@ export default function CatalogClient({ brands }: Props) {
       maxMileage: value.to,
     });
   }
-
-  console.log(carsList);
 
   return (
     <div className={css.catalogContainer}>
@@ -135,14 +137,21 @@ export default function CatalogClient({ brands }: Props) {
 
       <CarsList items={carsList} />
 
-      {data && data?.totalPages > Number(data?.page) && (
-        <button
-          onClick={handleLoadMore}
-          type="button"
-          className={css.loadMoreBtn}
-        >
-          Load more
-        </button>
+      {isLoadingMore ||
+        (data && data?.totalPages > Number(data?.page) && (
+          <button
+            onClick={handleLoadMore}
+            type="button"
+            className={css.loadMoreBtn}
+          >
+            Load more
+          </button>
+        ))}
+
+      {isLoadingMore && (
+        <div className={css.loaderContainer}>
+          <Loader />
+        </div>
       )}
 
       {isFetching && (
