@@ -1,3 +1,5 @@
+// app/layout.tsx
+
 import type { Metadata } from 'next';
 import { Inter, Manrope } from 'next/font/google';
 import 'modern-normalize';
@@ -61,7 +63,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://go-it-car-rental-5ia63ez2b-henrys-projects-5eef7959.vercel.app/openGraph.webp',
+        url: 'https://go-it-car-rental-5ia63ez2b-henrys-projects-5eef7959.vercel.app/openGraph.png',
         width: 1200,
         height: 630,
         alt: 'Find your perfect rental car',
@@ -74,7 +76,7 @@ export const metadata: Metadata = {
     description:
       'Reliable and budget-friendly rental cars for any journey. Browse our catalog and book your ideal car today.',
     images: [
-      'https://go-it-car-rental-5ia63ez2b-henrys-projects-5eef7959.vercel.app/openGraph.webp',
+      'https://go-it-car-rental-5ia63ez2b-henrys-projects-5eef7959.vercel.app/openGraph.png',
     ],
   },
 };
