@@ -58,12 +58,12 @@ export const metadata: Metadata = {
     title: 'Find Your Perfect Rental Car – Reliable & Affordable Rentals',
     description:
       'Explore our wide range of rental cars. Filter by brand, price, and mileage, and book your ideal vehicle today.',
-    url: 'https://go-it-car-rental.vercel.app/openGraph.png',
+    url: 'https://go-it-car-rental.vercel.app',
     siteName: 'RentalCar',
     type: 'website',
     images: [
       {
-        url: 'https://go-it-car-rental-5ia63ez2b-henrys-projects-5eef7959.vercel.app/openGraph.jpg',
+        url: 'https://go-it-car-rental.vercel.app/openGraph.jpg',
         width: 1200,
         height: 630,
         alt: 'Find your perfect rental car',
@@ -75,8 +75,6 @@ export const metadata: Metadata = {
     title: 'Find Your Perfect Rental Car – Reliable & Affordable Rentals',
     description:
       'Reliable and budget-friendly rental cars for any journey. Browse our catalog and book your ideal car today.',
-    images: [
-      'https://go-it-car-rental-5ia63ez2b-henrys-projects-5eef7959.vercel.app/openGraph.jpg',
-    ],
+    images: ['https://go-it-car-rental.vercel.app/openGraph.jpg'],
   },
 };

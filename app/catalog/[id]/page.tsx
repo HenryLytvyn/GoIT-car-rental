@@ -169,12 +169,12 @@ export async function generateMetadata({
     openGraph: {
       title: `Rent ${carFullName} – Detailed Info & Booking`,
       description: `Explore the ${carFullName} with full specifications, rental conditions, mileage ${car.mileage} km, and fuel consumption ${car.fuelConsumption}. Book now for $${car.rentalPrice}/hour.`,
-      url: `https://go-it-car-rental-5ia63ez2b-henrys-projects-5eef7959.vercel.app/catalog/${car.id}`,
+      url: `https://go-it-car-rental.vercel.app/catalog/${car.id}`,
       siteName: 'RentalCar',
       type: 'website',
       images: [
         {
-          url: `https://go-it-car-rental-5ia63ez2b-henrys-projects-5eef7959.vercel.app${car.img}`,
+          url: `https://go-it-car-rental.vercel.app${car.img}`,
           width: 1200,
           height: 630,
           alt: `${carFullName} preview`,
@@ -185,9 +185,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: `Rent ${carFullName} – Book Now`,
       description: `Rent the ${carFullName} for $${car.rentalPrice}/hour. Mileage: ${car.mileage} km, Fuel consumption: ${car.fuelConsumption}. Book online today!`,
-      images: [
-        `https://go-it-car-rental-5ia63ez2b-henrys-projects-5eef7959.vercel.app${car.img}`,
-      ],
+      images: [`https://go-it-car-rental.vercel.app${car.img}`],
     },
   };
 }
