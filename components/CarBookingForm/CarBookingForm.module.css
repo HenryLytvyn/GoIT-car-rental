@@ -1,0 +1,92 @@
+.formWrapper {
+  height: 488px;
+  position: relative;
+}
+
+.form {
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 32px;
+}
+
+.formTitle {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.formCall {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--color-text-secondary);
+  margin-bottom: 24px;
+}
+
+.fieldsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.fieldsItem {
+}
+
+.errorMessage {
+  font-size: 14px;
+  color: red;
+}
+
+.input {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  padding: 14px 20px;
+  width: 100%;
+  background-color: var(--color-bg-tertiary);
+}
+
+.input::placeholder {
+  color: var(--color-text-secondary);
+}
+
+.comment {
+  height: 88px;
+  resize: none;
+}
+
+.buttonSubmit {
+  border: none;
+  border-radius: 12px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  width: 156px;
+  display: block;
+  margin: 0 auto;
+
+  color: var(--color-text-inverse);
+  background-color: var(--color-accent);
+  transition: background-color 250ms ease;
+}
+
+.buttonSubmit:hover,
+.buttonSubmit:focus {
+  background-color: var(--color-hover);
+}
+
+.confirmation {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 250px;
+}
+
+.loaderContainer {
+  position: absolute;
+}

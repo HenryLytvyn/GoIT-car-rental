@@ -66,6 +66,12 @@ body {
   background-color: var(--color-bg-primary);
 }
 
+h1,
+h2,
+h3 {
+  font-family: var(--font-manrope), sans-serif;
+}
+
 .container {
   width: 1440px;
   padding: 0 120px;

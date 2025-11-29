@@ -25,6 +25,7 @@ export default function CatalogClient({ brands }: Props) {
     queryKey: ['cars'],
     queryFn: () => getCars(query),
     placeholderData: keepPreviousData,
+    // enabled: false,
   });
 
   useLockScroll(isFetching);
@@ -62,8 +63,6 @@ export default function CatalogClient({ brands }: Props) {
 
     await refetch();
   }
-
-  console.log('query.minMileage: ', query.minMileage);
 
   return (
     <>

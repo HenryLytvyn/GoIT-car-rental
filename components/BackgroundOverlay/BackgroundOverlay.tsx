@@ -5,6 +5,7 @@ import css from './BackgroundOverlay.module.css';
 type BackgroundOverlayProps = {
   isActive: boolean;
   isOverAll?: boolean;
+  isWholeScreen?: boolean;
 };
 
 export default function BackgroundOverlay({

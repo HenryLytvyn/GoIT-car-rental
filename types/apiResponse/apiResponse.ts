@@ -25,3 +25,12 @@ export interface CarByIdResponse {
   rentalConditions: string[];
   mileage: number;
 }
+
+export interface CarBookingResponse {
+  name: string;
+  email: string;
+  date: string;
+  comment?: string;
+  carId: string;
+  id: number;
+}

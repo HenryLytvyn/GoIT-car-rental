@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Icon } from '@/components/Icon/Icon';
 import getAddress from '@/utils/getAddress';
 import formatThousands from '@/utils/formatThousands';
+import CarBookingForm from '@/components/CarBookingForm/CarBookingForm';
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -23,6 +24,7 @@ export default async function CarInfo({ params }: Props) {
           height={512}
           className={css.carPicture}
         />
+        <CarBookingForm carId={id} />
       </div>
       <div className={css.rightSidebar}>
         <div className={css.commonInfoBlock}>

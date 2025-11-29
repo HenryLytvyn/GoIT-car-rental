@@ -1,8 +1,10 @@
 import { QueryCarsType } from '@/types/apiRequest/apiRequest';
 import type {
+  CarBookingResponse,
   CarByIdResponse,
   CarsResponse,
 } from '@/types/apiResponse/apiResponse';
+import { BookingFormType } from '@/types/CarBookingForm/CarBookingForm';
 import axios from 'axios';
 
 const BaseURL = process.env.NEXT_PUBLIC_API_URL;
@@ -24,10 +26,23 @@ export async function getCars({
 
 export async function getCarBrends(): Promise<string[]> {
   const { data } = await axios.get<string[]>(`${BaseURL}/brands`);
+
   return data;
 }
 
 export async function getCarById(id: string): Promise<CarByIdResponse> {
   const { data } = await axios.get<CarByIdResponse>(`${BaseURL}/cars/${id}`);
+
+  return data;
+}
+
+export async function postBookingCar(
+  form: BookingFormType
+): Promise<CarBookingResponse> {
+  const { data } = await axios.post<CarBookingResponse>(
+    'https://jsonplaceholder.typicode.com/posts',
+    form
+  );
+
   return data;
 }

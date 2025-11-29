@@ -3,23 +3,19 @@ import css from './CarCard.module.css';
 import LinkPrimary from '../LinkPrimary/LinkPrimary';
 import type { CarCardType } from '@/types/CarCard/CarCard';
 import getAddress from '@/utils/getAddress';
+import { Icon } from '../Icon/Icon';
+import { useFavouriteList } from '@/lib/store/favouriteStore';
 
 interface Props {
   car: CarCardType;
 }
 
 export default function CarCard({ car }: Props) {
-  // function getAddress(
-  //   countryOrCity: 'country' | 'city',
-  //   addressString: string
-  // ) {
-  //   const arrAddress = addressString
-  //     .split(' ')
-  //     .map(el => (el.endsWith(',') ? el.slice(0, -1) : el));
+  const { favouriteList, setFavourite } = useFavouriteList();
 
-  //   if (countryOrCity === 'city') return arrAddress[arrAddress.length - 2];
-  //   if (countryOrCity === 'country') return arrAddress[arrAddress.length - 1];
-  // }
+  function isFavourite() {
+    return favouriteList.includes(car.id);
+  }
 
   return (
     <div className={css.card}>
@@ -48,11 +44,39 @@ export default function CarCard({ car }: Props) {
           <p className={css.secondaryText}>{car.rentalCompany}</p>
           <div className={css.divider}></div>
         </div>
-        <p className={css.secondaryText}>{car.type}</p>
-        <div className={css.divider}></div>
-        <p className={css.secondaryText}>{car.mileage} km</p>
+        <div className={css.addressContainer}>
+          <p className={css.secondaryText}>{car.type}</p>
+          <div className={css.divider}></div>
+          <p className={css.secondaryText}>{car.mileage} km</p>
+        </div>
       </div>
       <LinkPrimary width={276} text="Read more" page={`/catalog/${car.id}`} />
+
+      {isFavourite() && (
+        <button
+          className={css.favouriteBtn}
+          type="button"
+          onClick={() => setFavourite(car.id)}
+        >
+          <Icon
+            name="icon-favourite-active"
+            className={`${css.favouriteIcon} ${css.favouriteIconActive}`}
+          />
+        </button>
+      )}
+
+      {!isFavourite() && (
+        <button
+          className={css.favouriteBtn}
+          type="button"
+          onClick={() => setFavourite(car.id)}
+        >
+          <Icon
+            name="icon-favourite-default"
+            className={`${css.favouriteIcon} ${css.favouriteIconNotActive}`}
+          />
+        </button>
+      )}
     </div>
   );
 }

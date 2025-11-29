@@ -19,6 +19,7 @@
 
 .customSelectOptionsContainer {
   position: absolute;
+  z-index: 1;
   border: 1px solid var(--color-bg-tertiary);
   border-radius: 12px;
   width: 204px;
