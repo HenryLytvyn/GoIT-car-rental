@@ -93,17 +93,9 @@ export default function CarBookingForm({ carId }: Props) {
                   ></ErrorMessage>
                 </li>
                 <li className={css.fieldItem}>
-                  {/* <Field
-                    type="text"
-                    name="date"
-                    className={css.input}
-                    placeholder="Booking date*"
-                  /> */}
-
                   <Field
                     name="date"
                     component={CalendarBookingDate}
-                    // className={css.input}
                     placeholder="Booking date*"
                     options={{
                       minDate: new Date(),

@@ -1,9 +1,6 @@
-// CalendarBookingDate.tsx
-
 'use client';
 
 import { FieldInputProps, FormikProps } from 'formik';
-import React from 'react';
 import Flatpickr from 'react-flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import css from './CalendarBookingDate.module.css';
@@ -18,8 +15,6 @@ interface Props {
     [key: string]: any;
   };
   className?: string;
-
-  // ⚡ чтобы можно было передать любые HTML-атрибуты
   [key: string]: any;
 }
 
@@ -29,7 +24,7 @@ export default function CalendarBookingDate({
   placeholder,
   options = {},
   className,
-  ...props // <-- здесь будут остальные пропсы, переданные через <Field ... >
+  ...props
 }: Props) {
   console.log('Flatpickr options:', options);
 
@@ -40,7 +35,7 @@ export default function CalendarBookingDate({
       options={{
         dateFormat: 'd.m.Y',
         disableMobile: true,
-        ...options, // <-- кастомные Flatpickr options
+        ...options,
       }}
       render={(_, ref) => (
         <input
@@ -49,7 +44,7 @@ export default function CalendarBookingDate({
           placeholder={placeholder}
           className={className || css.input}
           readOnly
-          {...props} // <-- передаёт ВСЕ пропсы (id, data-*, type, etc.)
+          {...props}
         />
       )}
     />
