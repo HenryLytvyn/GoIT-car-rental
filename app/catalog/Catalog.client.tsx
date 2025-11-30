@@ -60,29 +60,18 @@ export default function CatalogClient({ brands }: Props) {
   async function handleLoadMore() {
     setIsLoadingMore(true);
     const nextPage = Number(data?.page) + 1;
+
     const res = await getCars({
       ...queryStore,
       page: String(nextPage),
     });
+
     addCarsToList(res.cars);
 
-    queryClient.setQueryData(['cars'], (old: CarsResponseType | undefined) => {
-      return {
-        ...res,
-        cars: [...carsList, ...res.cars],
-        totalCars: old?.totalCars,
-        totalPages: old?.totalPages,
-        page: String(nextPage),
-      };
+    queryClient.setQueryData(['cars'], {
+      ...res,
+      cars: [...carsList, ...res.cars],
     });
-
-    // queryClient.setQueryData(['cars'], {
-    //   ...res,
-    //   cars: [...carsList, ...res.cars],
-    //   totalCars: data?.totalCars,
-    //   page: String(nextPage),
-    //   totalPages: data?.totalPages,
-    // });
 
     setIsLoadingMore(false);
   }

@@ -10,6 +10,7 @@ import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import Loader from '../Loader/Loader';
+import CalendarBookingDate from '../CalendarBookingDate/CalendarBookingDate';
 
 interface Props {
   carId: string;
@@ -17,7 +18,7 @@ interface Props {
 
 export default function CarBookingForm({ carId }: Props) {
   const [isBooked, setIsBooked] = useState<boolean>(false);
-  const { addBooking, bookingList } = useBookingStore();
+  const { addBooking } = useBookingStore();
 
   const initialValues: BookingFormType = {
     name: '',
@@ -92,11 +93,21 @@ export default function CarBookingForm({ carId }: Props) {
                   ></ErrorMessage>
                 </li>
                 <li className={css.fieldItem}>
-                  <Field
+                  {/* <Field
                     type="text"
                     name="date"
                     className={css.input}
                     placeholder="Booking date*"
+                  /> */}
+
+                  <Field
+                    name="date"
+                    component={CalendarBookingDate}
+                    // className={css.input}
+                    placeholder="Booking date*"
+                    options={{
+                      minDate: new Date(),
+                    }}
                   />
 
                   <ErrorMessage
