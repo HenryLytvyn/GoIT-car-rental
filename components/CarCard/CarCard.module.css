@@ -29,12 +29,6 @@
   margin-bottom: 8px;
 }
 
-.carInfo {
-}
-
-.text {
-}
-
 .addressContainer {
   margin-bottom: 4px;
 }
@@ -46,7 +40,6 @@
   font-size: 12px;
   line-height: 1.33;
   color: var(--color-text-secondary);
-  /* margin-right: 6px; */
 }
 
 .divider {

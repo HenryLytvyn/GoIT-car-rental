@@ -107,7 +107,6 @@
   width: 276px !important;
   max-width: 276px !important;
   min-width: 276px !important;
-  /* height: 220px; */
 }
 
 :global(.flatpickr-day) {

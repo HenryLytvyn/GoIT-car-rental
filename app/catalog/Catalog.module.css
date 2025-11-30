@@ -18,9 +18,6 @@
   width: 752px;
 }
 
-.filterItem {
-}
-
 .selectTitle {
   font-weight: 400;
   font-size: 12px;
@@ -52,6 +49,5 @@
 }
 
 .loaderContainer {
-  /* position: absolute; */
   margin-top: 80px;
 }

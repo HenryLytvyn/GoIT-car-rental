@@ -1,5 +1,3 @@
-// catalog/page.tsx
-
 import { getCarBrends } from '@/lib/api/api';
 import CatalogClient from './Catalog.client';
 import { Metadata } from 'next';

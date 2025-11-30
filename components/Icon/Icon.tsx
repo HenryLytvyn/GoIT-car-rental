@@ -12,5 +12,3 @@ export function Icon({ name, className, ...props }: IconProps) {
     </svg>
   );
 }
-
-// exemple of use: <Icon name="icon-logout" className={css.header} />

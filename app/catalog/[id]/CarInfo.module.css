@@ -64,9 +64,6 @@
   margin-right: 16px;
 }
 
-.mileage {
-}
-
 .price {
   font-weight: 600;
   font-size: 24px;
@@ -80,9 +77,6 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
-}
-
-.rentFeaturesList {
 }
 
 .rentFeaturesItem:not(:last-child) {
@@ -116,7 +110,4 @@
   width: 16px;
   height: 16px;
   margin-right: 8px;
-}
-
-.detailedFeaturesText {
 }

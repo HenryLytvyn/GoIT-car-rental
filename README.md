@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GoIT Car Rental
 
-## Getting Started
+**GoIT Car Rental** is a car rental application built with **Next.js**.  
+In this project, I implemented for the first time storing dynamic data from the
+backend in global state, and I also paid special attention to **SEO** and **Open
+Graph**.  
+You can view the design mockup here:
+[Figma Design](https://www.figma.com/design/DJRaViKbsDW3WkCWtJgWFr/Rental-Car?node-id=0-1&p=f&t=kqOkWff6ouVVsfBa-0)
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 1. Home Page (`/`)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Header with navigation.
+- Hero section with a title, short tagline, image, and a button linking to the
+  car catalog.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 2. Car Catalog (`/catalog`)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Filters by brand, maximum rental price, and mileage (from/to).
+- Car cards with basic information, image, and a button to view car details.
+- Ability to add cars to **favorites**, stored in **localStorage**.
+- **Load more** button to fetch additional data from the server (hidden when no
+  more data).
+- Car cards are rendered using **global state management**.
 
-## Learn More
+### 3. Car Details Page (`/catalog/[:id]`)
 
-To learn more about Next.js, take a look at the following resources:
+- Detailed car information including images and full specifications.
+- Booking form with fields: **name, email, date, comment**.
+- Form validation using **Formik + Yup**.
+- Date picker implemented with **react-flatpickr**.
+- Booking confirmation displayed after form submission.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technologies
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Next.js** (SSR + CSR)
+- **React**
+- **Formik + Yup** (forms and validation)
+- **react-flatpickr** (date picker)
+- **TypeScript**
 
-## Deploy on Vercel
+## Highlights
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Car filters and ability to add to **favorites**.
+- Server-side rendering for pages and dynamic car details.
+- SEO optimization with metadata and **Open Graph** for each page.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Author
+
+**Henry Lytvyn**
+
+- Email: [hennadii.lytvyn@gmail.com]
+- GitHub: [https://github.com/HenryLytvyn]
+- LinkedIn: [https://linkedin.com/in/henry-lytvyn]

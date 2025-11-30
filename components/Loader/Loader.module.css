@@ -1,5 +1,3 @@
-/*Loader*/
-
 .loader {
   display: block;
   position: relative;
@@ -84,6 +82,7 @@
       10px 50px;
   }
 }
+
 .loader {
   top: 0;
   width: 65px;

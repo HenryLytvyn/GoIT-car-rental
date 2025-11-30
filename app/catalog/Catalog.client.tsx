@@ -91,9 +91,6 @@ export default function CatalogClient({ brands }: Props) {
     });
   }
 
-  // console.log('data?.totalPages: ', data?.totalPages);
-  // console.log('Number(data?.page): ', Number(data?.page));
-
   return (
     <div className={css.catalogContainer}>
       <div className={css.filtersContainer}>

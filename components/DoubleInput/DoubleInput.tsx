@@ -1,7 +1,3 @@
-// DoubleInput.tsx
-
-// 'use client';
-
 import formatThousands from '@/utils/formatThousands';
 import css from './DoubleInput.module.css';
 import type { DoubleInputValuesType } from '@/types/DoubleInput/DoubleInput';

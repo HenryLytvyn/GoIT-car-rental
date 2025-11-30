@@ -26,8 +26,6 @@ export default function CalendarBookingDate({
   className,
   ...props
 }: Props) {
-  console.log('Flatpickr options:', options);
-
   return (
     <Flatpickr
       value={field.value}
