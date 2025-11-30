@@ -16,6 +16,8 @@ import useCarsFilters from '@/lib/store/CarsFiltersStore';
 import useCarsStore from '@/lib/store/CarsStore';
 import { CarsResponseType } from '@/types/apiResponse/apiResponse';
 import { useEffect, useState } from 'react';
+import { catalogInitialQuery } from '@/constants/constants';
+import mileAgeValidation from '@/utils/mileAgeValidation';
 
 interface Props {
   brands: string[];
@@ -23,13 +25,14 @@ interface Props {
 
 export default function CatalogClient({ brands }: Props) {
   const [isLoadingMore, setIsLoadingMore] = useState(false);
-  const { query, setQuery } = useCarsFilters();
+  const [query, setQuery] = useState<QueryCarsType>(catalogInitialQuery);
   const { carsList, rewriteCarsList, addCarsToList } = useCarsStore();
+  const { queryStore, setQueryStore } = useCarsFilters();
   const queryClient = useQueryClient();
 
   const { data, error, isFetching, refetch } = useQuery<CarsResponseType>({
     queryKey: ['cars'],
-    queryFn: () => getCars(query),
+    queryFn: () => getCars(queryStore),
     placeholderData: previous => previous,
     enabled: carsList.length === 0,
   });
@@ -43,20 +46,13 @@ export default function CatalogClient({ brands }: Props) {
   useLockScroll(isFetching);
 
   async function handleSearch() {
-    if (query.minMileage !== '' && query.maxMileage !== '') {
-      const minMileageNumber = Number(query.minMileage);
-      const maxMileageNumber = Number(query.maxMileage);
+    setQueryStore(query);
 
-      if (maxMileageNumber < minMileageNumber) {
-        setQuery({
-          maxMileage: String(minMileageNumber + 500),
-        });
+    mileAgeValidation();
+    setQuery(useCarsFilters.getState().queryStore);
 
-        await new Promise(r => setTimeout(r));
-
-        // waiting one tick of the event loop so React can process the state update and trigger a re-render
-      }
-    }
+    await new Promise(r => setTimeout(r));
+    // waiting one tick of the event loop so React can process the state update and trigger a re-render
 
     await refetch();
   }
@@ -65,30 +61,49 @@ export default function CatalogClient({ brands }: Props) {
     setIsLoadingMore(true);
     const nextPage = Number(data?.page) + 1;
     const res = await getCars({
-      ...query,
+      ...queryStore,
       page: String(nextPage),
     });
     addCarsToList(res.cars);
-    queryClient.setQueryData(['cars'], {
-      ...res,
-      cars: [...carsList, ...res.cars],
+
+    queryClient.setQueryData(['cars'], (old: CarsResponseType | undefined) => {
+      return {
+        ...res,
+        cars: [...carsList, ...res.cars],
+        totalCars: old?.totalCars,
+        totalPages: old?.totalPages,
+        page: String(nextPage),
+      };
     });
+
+    // queryClient.setQueryData(['cars'], {
+    //   ...res,
+    //   cars: [...carsList, ...res.cars],
+    //   totalCars: data?.totalCars,
+    //   page: String(nextPage),
+    //   totalPages: data?.totalPages,
+    // });
 
     setIsLoadingMore(false);
   }
 
   function updateQuery(key: keyof QueryCarsType, value: string) {
     setQuery({
+      ...query,
       [key]: value,
     });
   }
 
   function handleDoubleInput(value: DoubleInputValuesType) {
     setQuery({
+      ...query,
       minMileage: value.from,
       maxMileage: value.to,
     });
   }
+
+  // console.log('data?.totalPages: ', data?.totalPages);
+  // console.log('Number(data?.page): ', Number(data?.page));
 
   return (
     <div className={css.catalogContainer}>

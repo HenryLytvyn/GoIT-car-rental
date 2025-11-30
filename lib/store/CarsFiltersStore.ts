@@ -1,23 +1,24 @@
 import { create } from 'zustand';
 import type { QueryCarsType } from '@/types/apiRequest/apiRequest';
+import { catalogInitialQuery } from '@/constants/constants';
 
 interface CarsFiltersState {
-  query: QueryCarsType;
-  setQuery: (q: Partial<QueryCarsType>) => void;
-  resetQuery: () => void;
+  queryStore: QueryCarsType;
+  setQueryStore: (q: Partial<QueryCarsType>) => void;
+  resetQueryStore: () => void;
 }
 
 const useCarsFilters = create<CarsFiltersState>(set => ({
-  query: { limit: '12', page: '1' },
+  queryStore: catalogInitialQuery,
 
-  setQuery: query =>
+  setQueryStore: query =>
     set(state => ({
-      query: { ...state.query, ...query },
+      queryStore: { ...state.queryStore, ...query },
     })),
 
-  resetQuery: () =>
+  resetQueryStore: () =>
     set({
-      query: { limit: '12', page: '1' },
+      queryStore: catalogInitialQuery,
     }),
 }));
 
