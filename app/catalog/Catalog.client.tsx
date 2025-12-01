@@ -43,6 +43,10 @@ export default function CatalogClient({ brands }: Props) {
     }
   }, [data]);
 
+  useEffect(() => {
+    if (queryStore !== catalogInitialQuery) setQuery(queryStore);
+  }, []);
+
   useLockScroll(isFetching);
 
   async function handleSearch() {
